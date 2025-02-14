@@ -1,0 +1,26 @@
+train:
+  epochs: 400      #迭代次数设置为100-800
+  batch_size: 1    #不要改！
+  lr: 1e-5
+  show: 10         #每隔多少次迭代显示一次训练损失
+
+diffusion:
+  layers: 3
+  channels: 64
+  nheads: 16
+  diffusion_embedding_dim: 256
+  beta_start: 0.0001
+  beta_end: 0.5
+  num_steps: 50   #扩散步数
+  schedule: "quad"
+#target_strategy: 'impute'or'predict'.
+model:
+  is_unconditional: 0
+  timeemb: 256
+  featureemb: 32
+  target_strategy: "random"   #采取随机掩码策略
+  missing_ratio: 0.1      #数据丢失率,不要改！模型无法预报丢失大量数据的问题
+  valid_ratio: 0
+evaluate:
+  nsample: 100   #采样数,设置为100-500较为合理
+  ftr: 8        #预测的轮数，共预测（ftr*4）个点,含首轮
