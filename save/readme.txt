@@ -1,0 +1,1 @@
+This file folder is used to store all kinds of results. Users can change the file folders' name according to the code in 'utils.py'.
